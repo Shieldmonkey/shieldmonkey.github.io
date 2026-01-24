@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shieldmonkey - Security-First UserScript Manager</title>
-    <meta name="description" content="A secure UserScript manager extension designed for transparency and security.">
-    
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.18"></script> 
+    <title>Shieldmonkey - セキュリティ重視のUserScriptマネージャー</title>
+    <meta name="description" content="Shieldmonkeyは、サプライチェーン攻撃対策と透明性を最優先した、セキュリティ重視のUserScript管理拡張機能です。">
+    <link rel="icon" href="./icons/icon.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shieldmonkey.github.io/">
+    <meta property="og:title" content="Shieldmonkey - セキュリティ重視のUserScriptマネージャー">
+    <meta property="og:description"
+        content="徹底したサプライチェーン対策と透明性の高いオープンソース開発により、セキュリティを維持しつつもユーザースクリプトによる利便性をもたらす拡張機能です。">
+    <meta property="og:image" content="./icons/icon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Shieldmonkey - セキュリティ重視のUserScriptマネージャー">
+    <meta property="twitter:description"
+        content="徹底したサプライチェーン対策と透明性の高いオープンソース開発により、セキュリティを維持しつつもユーザースクリプトによる利便性をもたらす拡張機能です。">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.18"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
 
     <style>
@@ -18,24 +36,60 @@
             background-color: #ffffff;
             color: #1a202c;
         }
+
         /* 日本語の折り返しを自然にする */
-        h1, h2, h3, h4, h5, h6, p, li {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        li {
             word-break: auto-phrase;
         }
+
         .font-mono {
             font-family: 'JetBrains Mono', monospace;
         }
+
         .hero-pattern {
             background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
             background-size: 24px 24px;
         }
+
         .glass-panel {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .reveal-delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            animation-delay: 0.2s;
+        }
     </style>
 </head>
+
 <body class="antialiased overflow-x-hidden">
 
     <!-- Navigation -->
@@ -43,15 +97,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-2">
-                    <div class="bg-green-600 text-white p-1 rounded">
-                        <i data-lucide="shield" class="h-4 w-4"></i>
-                    </div>
+                    <img src="./icons/icon.png" alt="Shieldmonkey Logo" class="h-8 w-8 rounded-lg shadow-sm">
                     <span class="font-bold text-lg tracking-tight text-gray-900">Shieldmonkey</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8 font-mono text-sm font-semibold text-gray-600">
                         <a href="#features" class="hover:text-green-600 transition-colors">Features</a>
-                        <a href="https://github.com/shieldmonkey/shieldmonkey" class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+                        <a href="https://github.com/shieldmonkey/shieldmonkey"
+                            class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
                             <i data-lucide="github" class="w-4 h-4"></i>
                             <span>GitHub</span>
                         </a>
@@ -64,30 +117,45 @@
     <!-- Hero Section -->
     <section class="relative pt-32 pb-20 lg:pt-36 lg:pb-24 overflow-hidden">
         <div class="absolute inset-0 hero-pattern opacity-60 pointer-events-none"></div>
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-green-500/5 blur-[100px] rounded-full pointer-events-none"></div>
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-green-500/5 blur-[100px] rounded-full pointer-events-none">
+        </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <!-- Beta Badge -->
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-mono mb-6 font-semibold">
-                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                Public Beta v0.1.0
+            <!-- App Icon -->
+            <div class="flex justify-center mb-8 reveal opacity-0">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-green-500/20 blur-2xl rounded-full"></div>
+                    <img src="./icons/icon.png" alt="Shieldmonkey Logo"
+                        class="relative w-24 h-24 md:w-32 md:h-32 rounded-3xl shadow-2xl border-4 border-white">
+                </div>
             </div>
-            
+
+            <!-- Beta Badge -->
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-mono mb-6 font-semibold reveal opacity-0">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                Public Beta Available
+            </div>
+
             <!-- Main Title (Smaller & Reserved) -->
-            <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-gray-900 leading-tight">
+            <h1
+                class="text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-gray-900 leading-tight reveal reveal-delay-1 opacity-0">
                 Shieldmonkey
             </h1>
-            <p class="text-xl md:text-2xl font-bold text-gray-500 mb-8 tracking-tight">
+            <p class="text-xl md:text-2xl font-bold text-gray-500 mb-8 tracking-tight reveal reveal-delay-1 opacity-0">
                 Security-First UserScript Manager
             </p>
-            
-            <p class="mt-4 max-w-3xl mx-auto text-base md:text-lg text-gray-600 leading-relaxed mb-10">
+
+            <p
+                class="mt-4 max-w-3xl mx-auto text-base md:text-lg text-gray-600 leading-relaxed mb-10 reveal reveal-delay-2 opacity-0">
                 Shieldmonkeyは、徹底したサプライチェーン対策と透明性の高いオープンソース開発により、セキュリティを維持しつつもユーザースクリプトによる利便性をもたらす拡張機能です。
             </p>
 
-            <div class="flex flex-col items-center gap-6">
+            <div class="flex flex-col items-center gap-6 reveal reveal-delay-2 opacity-0">
                 <!-- Primary Action -->
-                <a href="#download" class="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-green-600/20 transition-all flex items-center justify-center gap-2 group transform hover:-translate-y-0.5">
+                <a href="#download"
+                    class="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-bold text-lg rounded-xl shadow-lg shadow-green-600/20 transition-all flex items-center justify-center gap-2 group transform hover:-translate-y-0.5">
                     <i data-lucide="download" class="w-5 h-5"></i>
                     <span>Download from GitHub</span>
                     <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i>
@@ -95,11 +163,13 @@
 
                 <!-- Store Links (Coming Soon) -->
                 <div class="mt-6">
-                    <p class="text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">Available Soon on Stores</p>
+                    <p class="text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider">ストア公開準備中</p>
                     <div class="flex flex-wrap justify-center gap-3">
                         <!-- Chrome -->
-                        <div class="relative group opacity-60 cursor-not-allowed transform scale-90">
-                            <div class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <div
+                            class="relative group opacity-60 cursor-not-allowed transform scale-90 grayscale transition-all hover:grayscale-0">
+                            <div
+                                class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm">
                                 <i data-lucide="chrome" class="w-5 h-5 text-gray-600"></i>
                                 <div class="text-left">
                                     <div class="text-[10px] text-gray-500 leading-none">Add to</div>
@@ -107,10 +177,12 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Firefox -->
-                        <div class="relative group opacity-60 cursor-not-allowed transform scale-90">
-                            <div class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <div
+                            class="relative group opacity-60 cursor-not-allowed transform scale-90 grayscale transition-all hover:grayscale-0">
+                            <div
+                                class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm">
                                 <i data-lucide="flame" class="w-5 h-5 text-gray-600"></i>
                                 <div class="text-left">
                                     <div class="text-[10px] text-gray-500 leading-none">Get it on</div>
@@ -120,8 +192,10 @@
                         </div>
 
                         <!-- Edge -->
-                        <div class="relative group opacity-60 cursor-not-allowed transform scale-90">
-                            <div class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <div
+                            class="relative group opacity-60 cursor-not-allowed transform scale-90 grayscale transition-all hover:grayscale-0">
+                            <div
+                                class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm">
                                 <i data-lucide="globe" class="w-5 h-5 text-gray-600"></i>
                                 <div class="text-left">
                                     <div class="text-[10px] text-gray-500 leading-none">Get it on</div>
@@ -136,37 +210,50 @@
     </section>
 
     <!-- Core Features Grid (Restructured) -->
-    <section id="features" class="py-20 bg-gray-50 relative border-t border-gray-200">
+    <section id="features" class="py-20 bg-gray-50 relative border-t border-gray-200 reveal-on-scroll opacity-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-2xl font-bold mb-4 text-gray-900">The "Static" Philosophy</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">不便さと引き換えに手に入れる、絶対的な安心。<br>Shieldmonkeyは「何もしない」ことであなたを守ります。</p>
+                <p class="text-gray-600 max-w-2xl mx-auto">不便さと引き換えに手に入れる、絶対的な安心。<br>Shieldmonkeyは「何もしない」ことであなたを守ります。
+                </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Feature 1: Zero Network Activity (Merged) -->
-                <div class="p-8 rounded-2xl bg-white border border-gray-200 hover:border-green-500/50 hover:shadow-xl hover:shadow-green-500/5 transition-all group flex flex-col h-full">
-                    <div class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-100 transition-colors">
+                <div
+                    class="p-8 rounded-2xl bg-white border border-gray-200 hover:border-green-500/50 hover:shadow-xl hover:shadow-green-500/5 transition-all group flex flex-col h-full">
+                    <div
+                        class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-100 transition-colors">
                         <i data-lucide="network" class="text-green-600 w-6 h-6"></i>
                     </div>
                     <h3 class="text-lg font-bold mb-3 text-gray-900">Zero Network Activity</h3>
                     <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
-                        拡張機能自体が外部との通信を一切行わないため、スクリプトの自動更新やクラウドバックアップも存在しません。この制約はCSP (<code class="bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono">connect-src 'self'</code>) によって物理的に担保されています。
+                        拡張機能自体が外部との通信を一切行わないため、スクリプトの自動更新やクラウドバックアップも存在しません。この制約はCSP (<code
+                            class="bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono">connect-src 'self'</code>)
+                        によって物理的に担保されています。
                     </p>
                     <div class="text-xs font-mono text-red-600 flex flex-col gap-1 font-semibold mt-auto">
-                        <span class="flex items-center gap-1"><i data-lucide="x-circle" class="w-3 h-3"></i> No Silent Updates</span>
-                        <span class="flex items-center gap-1"><i data-lucide="x-circle" class="w-3 h-3"></i> No Cloud Backup</span>
+                        <span class="flex items-center gap-1"><i data-lucide="x-circle" class="w-3 h-3"></i> No Silent
+                            Updates</span>
+                        <span class="flex items-center gap-1"><i data-lucide="x-circle" class="w-3 h-3"></i> No Cloud
+                            Backup</span>
                     </div>
                 </div>
 
                 <!-- Feature 2: Supply Chain Defense -->
-                <div class="p-8 rounded-2xl bg-white border border-gray-200 hover:border-green-500/50 hover:shadow-xl hover:shadow-green-500/5 transition-all group flex flex-col h-full">
-                    <div class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-100 transition-colors">
+                <div
+                    class="p-8 rounded-2xl bg-white border border-gray-200 hover:border-green-500/50 hover:shadow-xl hover:shadow-green-500/5 transition-all group flex flex-col h-full">
+                    <div
+                        class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-100 transition-colors">
                         <i data-lucide="package-check" class="text-green-600 w-6 h-6"></i>
                     </div>
                     <h3 class="text-lg font-bold mb-3 text-gray-900">Supply Chain Defense</h3>
                     <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
-                        NPMのベストプラクティスを徹底。<code class="bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono">npm ci</code> による完全なバージョン固定と、<code class="bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono">ignore-scripts</code> による実行防止で、ビルド環境の安全性を確保します。
+                        NPMのベストプラクティスを徹底。<code
+                            class="bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono">npm ci</code>
+                        による完全なバージョン固定と、<code
+                            class="bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono">ignore-scripts</code>
+                        による実行防止で、ビルド環境の安全性を確保します。
                     </p>
                     <div class="text-xs font-mono text-green-600 flex items-center gap-1 font-semibold mt-auto">
                         <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Dependencies
@@ -174,17 +261,142 @@
                 </div>
 
                 <!-- Feature 3: Transparent (Moved from Audit Section) -->
-                <div class="p-8 rounded-2xl bg-white border border-gray-200 hover:border-green-500/50 hover:shadow-xl hover:shadow-green-500/5 transition-all group flex flex-col h-full">
-                    <div class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-100 transition-colors">
+                <div
+                    class="p-8 rounded-2xl bg-white border border-gray-200 hover:border-green-500/50 hover:shadow-xl hover:shadow-green-500/5 transition-all group flex flex-col h-full">
+                    <div
+                        class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-100 transition-colors">
                         <i data-lucide="eye" class="text-green-600 w-6 h-6"></i>
                     </div>
                     <h3 class="text-lg font-bold mb-3 text-gray-900">Verifiable Trust</h3>
                     <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
-                        セキュリティツールがブラックボックスであってはなりません。ビルド後のコードに対しても意図的にMinify（圧縮）を行わず、Source Mapsも同梱することで、誰もが検証可能な透明性を提供します。
+                        セキュリティツールがブラックボックスであってはなりません。ビルド後のコードに対しても意図的にMinify（圧縮）を行わず、Source
+                        Mapsも同梱することで、誰もが検証可能な透明性を提供します。
                     </p>
                     <div class="text-xs font-mono text-green-600 flex items-center gap-1 font-semibold mt-auto">
                         <i data-lucide="file-code" class="w-3 h-3"></i> Readable Code
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Installation Steps -->
+    <section class="py-20 bg-white border-t border-gray-200 reveal-on-scroll opacity-0">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl font-bold mb-4 text-gray-900">How to Install</h2>
+                <p class="text-gray-600">現在はパブリックベータ版として、手動インストールのみを提供しています。</p>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="flex gap-6 items-start">
+                    <div
+                        class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-xl shadow-lg">
+                        1</div>
+                    <div class="pt-2">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">GitHub Releasesからダウンロード</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            ページ下部のリンクから、最新の <code
+                                class="bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono">shieldmonkey-vX.X.X.zip</code>
+                            をダウンロードし、解凍します。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-6 items-start">
+                    <div
+                        class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-xl shadow-lg">
+                        2</div>
+                    <div class="pt-2">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">デベロッパーモードを有効化</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Chrome (またはEdge/Brave) の拡張機能管理ページ (<code
+                                class="bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono">chrome://extensions</code>)
+                            を開き、右上の「デベロッパーモード」スイッチをONにします。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-6 items-start">
+                    <div
+                        class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-xl shadow-lg">
+                        3</div>
+                    <div class="pt-2">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">パッケージ化されていない拡張機能を読み込む</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            「パッケージ化されていない拡張機能を読み込む」ボタンをクリックし、解凍したフォルダ（manifest.jsonが含まれているフォルダ）を選択してください。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex gap-6 items-start">
+                    <div
+                        class="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-green-500/30">
+                        4</div>
+                    <div class="pt-2">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">ユーザースクリプトを許可する</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            インストールされた拡張機能の詳細ページを開き、「ユーザースクリプトを許可する」のスイッチをONにしてください。<br>
+                            <span class="text-sm text-red-600 font-bold mt-1 block">※この設定を行わないとスクリプトが動作しません。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-white border-t border-gray-200 reveal-on-scroll opacity-0">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-16 tracking-tight">Frequently Asked Questions
+            </h2>
+            <div class="grid gap-10">
+                <div class="group">
+                    <h3
+                        class="text-lg font-extrabold text-gray-900 mb-2 flex items-center gap-3 transition-colors group-hover:text-green-600">
+                        <span class="text-green-600">Q.</span> なぜ手動インストールが推奨されるのですか？
+                    </h3>
+                    <p
+                        class="text-gray-600 leading-relaxed pl-8 border-l-2 border-gray-100 group-hover:border-green-500 transition-colors">
+                        Chrome Web
+                        Storeなどは「全自動更新」が基本です。しかし、セキュリティツールには「勝手にコードが変わらないこと」が求められます。Shieldmonkeyはユーザーがコードの変更点を確認し、意思を持ってアップデートすることを前提に設計されています。
+                    </p>
+                </div>
+                <div class="group">
+                    <h3
+                        class="text-lg font-extrabold text-gray-900 mb-2 flex items-center gap-3 transition-colors group-hover:text-green-600">
+                        <span class="text-green-600">Q.</span> 利便性は下がりますか？
+                    </h3>
+                    <p
+                        class="text-gray-600 leading-relaxed pl-8 border-l-2 border-gray-100 group-hover:border-green-500 transition-colors">
+                        はい。自動更新やクラウド同期はありません。データのバックアップも手動のエクスポートが必要です。私たちは「便利さ」のために「安全」をトレードオフにすることをやめました。
+                    </p>
+                </div>
+                <div class="group">
+                    <h3
+                        class="text-lg font-extrabold text-gray-900 mb-2 flex items-center gap-3 transition-colors group-hover:text-green-600">
+                        <span class="text-green-600">Q.</span> コードが読めるメリットは何ですか？
+                    </h3>
+                    <p
+                        class="text-gray-600 leading-relaxed pl-8 border-l-2 border-gray-100 group-hover:border-green-500 transition-colors">
+                        拡張機能があなたのブラウザ上で何をしているか、いつでも検証可能です。配布コードがMinify（圧縮）されていないため、ブラウザのデバッガーだけで「意図しない挙動」がないか容易に監査できます。
+                    </p>
+                </div>
+                <div class="group">
+                    <h3
+                        class="text-lg font-extrabold text-gray-900 mb-2 flex items-center gap-3 transition-colors group-hover:text-green-600">
+                        <span class="text-green-600">Q.</span> ユーザースクリプト自体は安全ですか？
+                    </h3>
+                    <p
+                        class="text-gray-600 leading-relaxed pl-8 border-l-2 border-gray-100 group-hover:border-green-500 transition-colors">
+                        いいえ。Shieldmonkeyは「マネージャー」としての安全性を担保しますが、あなたがインストールする「スクリプト本体」の安全性までは保証できません。必ず信頼できるソースからスクリプトを取得し、内容を確認してから実行してください。
+                    </p>
                 </div>
             </div>
         </div>
@@ -199,31 +411,36 @@
                 GitHub Releasesから署名されたバージョンを取得し、あなたのタイミングでアップデートを行ってください。
             </p>
 
-            <div class="bg-white rounded-2xl border border-gray-200 shadow-xl p-8 mb-12 max-w-2xl mx-auto transform transition-all hover:scale-[1.01] hover:shadow-2xl hover:border-green-500/30">
+            <div
+                class="bg-white rounded-2xl border border-gray-200 shadow-xl p-8 mb-12 max-w-2xl mx-auto transform transition-all hover:scale-[1.01] hover:shadow-2xl hover:border-green-500/30">
                 <div class="flex items-center justify-between mb-6 border-b border-gray-100 pb-4">
                     <div class="flex items-center gap-3">
                         <div class="bg-green-100 p-2 rounded-lg">
                             <i data-lucide="package" class="text-green-600 w-5 h-5"></i>
                         </div>
                         <div class="text-left">
-                            <div class="font-bold text-gray-900 text-lg">shieldmonkey-v0.1.0.zip</div>
-                            <div class="text-xs text-gray-500 font-mono">SHA256: e3b0c44298fc1c149afbf4c8996fb92427...</div>
+                            <div class="font-bold text-gray-900 text-lg">Latest Release</div>
+                            <div class="text-xs text-green-600 font-mono font-bold">Check GitHub for version info</div>
                         </div>
                     </div>
-                    <div class="bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Latest</div>
+                    <div
+                        class="bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Latest</div>
                 </div>
-                
-                <a href="https://github.com/shieldmonkey/shieldmonkey/releases" class="block w-full bg-gray-900 hover:bg-gray-800 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 mb-3">
+
+                <a href="https://github.com/shieldmonkey/shieldmonkey/releases"
+                    class="block w-full bg-gray-900 hover:bg-gray-800 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 mb-3">
                     <i data-lucide="download" class="w-5 h-5"></i>
-                    <span>Download from Releases</span>
+                    <span>GitHub Releases へ移動</span>
                 </a>
                 <p class="text-xs text-gray-400">
-                    *Requires Developer Mode in Chrome/Edge/Firefox to load unpacked extension.
+                    ※インストールにはブラウザのデベロッパーモードが必要です
                 </p>
             </div>
 
             <div class="flex justify-center items-center gap-6 text-gray-500 text-sm font-semibold">
-                <a href="https://github.com/shieldmonkey/shieldmonkey" class="hover:text-green-600 transition-colors">GitHub</a>
+                <a href="https://github.com/shieldmonkey/shieldmonkey"
+                    class="hover:text-green-600 transition-colors">GitHub</a>
                 <a href="#" class="hover:text-green-600 transition-colors">License (MIT)</a>
                 <a href="#" class="hover:text-green-600 transition-colors">Security Policy</a>
             </div>
@@ -234,13 +451,47 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
+            // Lucide icons
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             } else {
                 console.error("Lucide icons library failed to load.");
             }
+
+            // Reveal on Scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal');
+                        entry.target.classList.remove('opacity-0');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Header Scroll Effect
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    nav.classList.add('shadow-md');
+                    nav.classList.remove('border-transparent');
+                } else {
+                    nav.classList.remove('shadow-md');
+                    nav.classList.add('border-transparent');
+                }
+            });
         });
     </script>
 </body>
+
 </html>
