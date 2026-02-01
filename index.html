@@ -234,9 +234,7 @@
                     <h3 class="text-lg font-bold mb-3 text-gray-900">Zero Network Activity</h3>
                     <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow"
                         data-i18n="features.zero_network.desc">
-                        拡張機能自体が外部との通信を一切行わないため、スクリプトの自動更新やクラウドバックアップも存在しません。この制約はCSP (<code
-                            class="bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono">connect-src 'self'</code>)
-                        によって物理的に担保されています。
+                        拡張機能自体が外部との通信を一切行わないため、スクリプトの自動更新やクラウドバックアップも存在しません。この制約はmanifest.jsonの拡張機能のCSP設定によって物理的に担保されています。
                     </p>
                     <div class="text-xs font-mono text-red-600 flex flex-col gap-1 font-semibold mt-auto">
                         <span class="flex items-center gap-1"><i data-lucide="x-circle" class="w-3 h-3"></i> No Silent
@@ -474,7 +472,7 @@
                     "hero.store_coming_soon": "ストア公開準備中",
                     "features.philosophy.title": "The \"Static\" Philosophy",
                     "features.philosophy.desc": "不便さと引き換えに手に入れる、絶対的な安心。<br>Shieldmonkeyは「何もしない」ことであなたを守ります。",
-                    "features.zero_network.desc": "拡張機能自体が外部との通信を一切行わないため、スクリプトの自動更新やクラウドバックアップも存在しません。この制約はCSP (<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>connect-src 'self'</code>) によって物理的に担保されています。",
+                    "features.zero_network.desc": "拡張機能自体が外部との通信を一切行わないため、スクリプトの自動更新やクラウドバックアップも存在しません。この制約はmanifest.jsonの拡張機能のCSP設定によって物理的に担保されています。",
                     "features.supply_chain.desc": "pnpmのサプライチェーンセキュリティ機能を活用。<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>frozen-lockfile</code> による厳密なバージョン管理と、<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>ignore-scripts</code> の強制により、ビルド時の不正なスクリプト実行やPhantom dependenciesを完全に防止します。",
                     "features.verifiable.desc": "セキュリティツールがブラックボックスであってはなりません。ビルド後のコードに対しても意図的にMinify（圧縮）を行わず、Source Mapsも同梱することで、誰もが検証可能な透明性を提供します。",
                     "install.subtitle": "現在はパブリックベータ版として、手動インストールのみを提供しています。",
@@ -506,7 +504,7 @@
                     "hero.store_coming_soon": "Store Release Coming Soon",
                     "features.philosophy.title": "The \"Static\" Philosophy",
                     "features.philosophy.desc": "Absolute peace of mind in exchange for inconvenience.<br>Shieldmonkey protects you by \"doing nothing\".",
-                    "features.zero_network.desc": "Since the extension itself performs no external communication, there are no automatic script updates or cloud backups. This constraint is physically enforced by CSP (<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>connect-src 'self'</code>).",
+                    "features.zero_network.desc": "Since the extension itself performs no external communication, there are no automatic script updates or cloud backups. This constraint is physically enforced by the extension's CSP settings in manifest.json.",
                     "features.supply_chain.desc": "Leveraging pnpm's supply chain security. We strictly manage versions via <code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>frozen-lockfile</code> and enforce <code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>ignore-scripts</code> to prevent malicious script execution and phantom dependencies during builds.",
                     "features.verifiable.desc": "Security tools must not be black boxes. By intentionally not minifying the distributed code and including Source Maps, we provide transparency that anyone can verify.",
                     "install.subtitle": "Currently available as a public beta with manual installation only.",
