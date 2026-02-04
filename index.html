@@ -101,12 +101,16 @@
                     <span class="font-bold text-lg tracking-tight text-gray-900">Shieldmonkey</span>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8 font-mono text-sm font-semibold text-gray-600">
-                        <a href="#features" class="hover:text-green-600 transition-colors">Features</a>
-                        <button id="lang-toggle" class="hover:text-green-600 transition-colors cursor-pointer">EN /
-                            JA</button>
+                    <div class="ml-10 flex items-center gap-6 font-mono">
+                        <!-- Language Switcher -->
+                        <div class="flex items-center bg-gray-100 p-1 rounded-lg">
+                            <button id="lang-btn-en"
+                                class="px-3 py-1.5 rounded-md text-xs font-bold transition-all">EN</button>
+                            <button id="lang-btn-ja"
+                                class="px-3 py-1.5 rounded-md text-xs font-bold transition-all">JP</button>
+                        </div>
                         <a href="https://github.com/shieldmonkey/shieldmonkey"
-                            class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+                            class="bg-gray-900 hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition-colors flex items-center gap-2 text-sm font-semibold">
                             <i data-lucide="github" class="w-4 h-4"></i>
                             <span>GitHub</span>
                         </a>
@@ -151,7 +155,7 @@
 
             <p class="mt-4 max-w-3xl mx-auto text-base md:text-lg text-gray-600 leading-relaxed mb-10 reveal reveal-delay-2 opacity-0"
                 data-i18n="hero.description">
-                Shieldmonkeyは、徹底したサプライチェーン対策と透明性の高いオープンソース開発により、セキュリティを維持しつつもユーザースクリプトによる利便性をもたらす拡張機能です。
+                Shieldmonkeyは外部への通信を一切しません。いや、できません。また、徹底したサプライチェーン対策とオープンソース開発により、安全を保ちながらUserScriptの利便性をもたらします。
             </p>
 
             <div class="flex flex-col items-center gap-6 reveal reveal-delay-2 opacity-0">
@@ -166,7 +170,7 @@
                 <!-- Store Links (Coming Soon) -->
                 <div class="mt-6">
                     <p class="text-xs font-semibold text-gray-400 mb-3 uppercase tracking-wider"
-                        data-i18n="hero.store_coming_soon">ストア公開準備中</p>
+                        data-i18n="hero.store_coming_soon">対応ストア</p>
                     <div class="flex flex-wrap justify-center gap-3">
                         <!-- Chrome -->
                         <div
@@ -175,23 +179,22 @@
                                 class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm">
                                 <i data-lucide="chrome" class="w-5 h-5 text-gray-600"></i>
                                 <div class="text-left">
-                                    <div class="text-[10px] text-gray-500 leading-none">Add to</div>
+                                    <div class="text-[10px] text-gray-500 leading-none">Coming Soon</div>
                                     <div class="font-bold text-sm text-gray-800 leading-tight">Chrome</div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Firefox -->
-                        <div
-                            class="relative group opacity-60 cursor-not-allowed transform scale-90 grayscale transition-all hover:grayscale-0">
-                            <div
-                                class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm">
-                                <i data-lucide="flame" class="w-5 h-5 text-gray-600"></i>
+                        <div class="relative group transform transition-all hover:-translate-y-0.5">
+                            <a href="https://addons.mozilla.org/firefox/addon/shieldmonkey" target="_blank"
+                                class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:border-orange-500/50 transition-all">
+                                <i data-lucide="flame" class="w-5 h-5 text-orange-500"></i>
                                 <div class="text-left">
                                     <div class="text-[10px] text-gray-500 leading-none">Get it on</div>
                                     <div class="font-bold text-sm text-gray-800 leading-tight">Firefox</div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
 
                         <!-- Edge -->
@@ -201,7 +204,7 @@
                                 class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm">
                                 <i data-lucide="globe" class="w-5 h-5 text-gray-600"></i>
                                 <div class="text-left">
-                                    <div class="text-[10px] text-gray-500 leading-none">Get it on</div>
+                                    <div class="text-[10px] text-gray-500 leading-none">Coming Soon</div>
                                     <div class="font-bold text-sm text-gray-800 leading-tight">Edge</div>
                                 </div>
                             </div>
@@ -231,7 +234,7 @@
                         class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-100 transition-colors">
                         <i data-lucide="network" class="text-green-600 w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold mb-3 text-gray-900">Zero Network Activity</h3>
+                    <h3 class="text-lg font-bold mb-3 text-gray-900">No Network Access</h3>
                     <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow"
                         data-i18n="features.zero_network.desc">
                         拡張機能自体が外部との通信を一切行わないため、スクリプトの自動更新やクラウドバックアップも存在しません。この制約はmanifest.jsonの拡張機能のCSP設定によって物理的に担保されています。
@@ -293,7 +296,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-2xl font-bold mb-4 text-gray-900">How to Install</h2>
-                <p class="text-gray-600" data-i18n="install.subtitle">現在はパブリックベータ版として、手動インストールのみを提供しています。</p>
+                <p class="text-gray-600" data-i18n="install.subtitle">Firefox版はストアから、Chrome版は手動でインストールしてください。</p>
             </div>
 
             <div class="space-y-12">
@@ -303,12 +306,9 @@
                         class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-xl shadow-lg">
                         1</div>
                     <div class="pt-2">
-                        <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="install.step1.title">GitHub
-                            Releasesからダウンロード</h3>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="install.step1.title">入手とインストール</h3>
                         <p class="text-gray-600 leading-relaxed mb-4" data-i18n="install.step1.desc">
-                            ページ下部のリンクから、最新の <code
-                                class="bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono">shieldmonkey-vX.X.X.zip</code>
-                            をダウンロードし、解凍します。
+                            Firefoxをお使いの方は公式ストアから追加してください。Chromeなどで手動インストールする場合は、GitHub Releasesから最新版をダウンロードします。
                         </p>
                     </div>
                 </div>
@@ -319,12 +319,10 @@
                         class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-xl shadow-lg">
                         2</div>
                     <div class="pt-2">
-                        <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="install.step2.title">デベロッパーモードを有効化
+                        <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="install.step2.title">拡張機能の読み込み（手動のみ）
                         </h3>
                         <p class="text-gray-600 leading-relaxed mb-4" data-i18n="install.step2.desc">
-                            Chrome (またはEdge/Brave) の拡張機能管理ページ (<code
-                                class="bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono">chrome://extensions</code>)
-                            を開き、右上の「デベロッパーモード」スイッチをONにします。
+                            手動インストールの場合、ブラウザの拡張機能管理ページで「デベロッパーモード」を有効にし、解凍したフォルダを読み込んでください。
                         </p>
                     </div>
                 </div>
@@ -332,28 +330,14 @@
                 <!-- Step 3 -->
                 <div class="flex gap-6 items-start">
                     <div
-                        class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-xl shadow-lg">
+                        class="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-green-500/30">
                         3</div>
                     <div class="pt-2">
                         <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="install.step3.title">
-                            パッケージ化されていない拡張機能を読み込む</h3>
+                            権限の確認</h3>
                         <p class="text-gray-600 leading-relaxed" data-i18n="install.step3.desc">
-                            「パッケージ化されていない拡張機能を読み込む」ボタンをクリックし、解凍したフォルダ（manifest.jsonが含まれているフォルダ）を選択してください。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="flex gap-6 items-start">
-                    <div
-                        class="flex-shrink-0 w-12 h-12 rounded-full bg-green-600 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-green-500/30">
-                        4</div>
-                    <div class="pt-2">
-                        <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="install.step4.title">ユーザースクリプトを許可する
-                        </h3>
-                        <p class="text-gray-600 leading-relaxed" data-i18n="install.step4.desc">
-                            インストールされた拡張機能の詳細ページを開き、「ユーザースクリプトを許可する」のスイッチをONにしてください。<br>
-                            <span class="text-sm text-red-600 font-bold mt-1 block">※この設定を行わないとスクリプトが動作しません。</span>
+                            Firefox: スクリプト実行時に権限を要求します。<br>
+                            Chrome: 必要に応じて拡張機能の詳細ページで「ファイルのURLへのアクセス」などを許可してください。
                         </p>
                     </div>
                 </div>
@@ -370,12 +354,11 @@
                 <div class="group">
                     <h3
                         class="text-lg font-extrabold text-gray-900 mb-2 flex items-center gap-3 transition-colors group-hover:text-green-600">
-                        <span class="text-green-600">Q.</span> <span data-i18n="faq.q1">なぜ手動インストールが推奨されるのですか？</span>
+                        <span class="text-green-600">Q.</span> <span data-i18n="faq.q1">手動インストールとストア版の違いは？</span>
                     </h3>
                     <p class="text-gray-600 leading-relaxed pl-8 border-l-2 border-gray-100 group-hover:border-green-500 transition-colors"
                         data-i18n="faq.a1">
-                        Chrome Web
-                        Storeなどは「全自動更新」が基本です。しかし、セキュリティツールには「勝手にコードが変わらないこと」が求められます。Shieldmonkeyはユーザーがコードの変更点を確認し、意思を持ってアップデートすることを前提に設計されています。
+                        「利便性」か「統制」かです。ストア版は審査があり導入も簡単ですが、自動更新により意図せずコードが変わるリスク（マルウェア化など）がゼロではありません。手動版はバージョンを完全に固定でき、コード監査も容易ですが、更新の手間がかかります。Shieldmonkeyでは手動インストールも、サプライチェーン攻撃に対する有効な選択肢として推奨しています。
                     </p>
                 </div>
                 <div class="group">
@@ -417,8 +400,8 @@
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold mb-4 text-gray-900">Take Control of Your Version.</h2>
             <p class="text-gray-600 mb-10 text-base leading-relaxed" data-i18n="footer.desc">
-                Webストアの利便性よりも、確実なバージョン管理を。<br>
-                GitHub Releasesから署名されたバージョンを取得し、あなたのタイミングでアップデートを行ってください。
+                Webストアの利便性か、手動管理による統制か。<br>
+                あなたのセキュリティポリシーに合わせて、最適なインストール方法を選択してください。
             </p>
 
             <div
@@ -451,8 +434,10 @@
             <div class="flex justify-center items-center gap-6 text-gray-500 text-sm font-semibold">
                 <a href="https://github.com/shieldmonkey/shieldmonkey"
                     class="hover:text-green-600 transition-colors">GitHub</a>
-                <a href="#" class="hover:text-green-600 transition-colors">License (MIT)</a>
-                <a href="#" class="hover:text-green-600 transition-colors">Security Policy</a>
+                <a href="https://github.com/shieldmonkey/shieldmonkey/blob/main/LICENSE"
+                    class="hover:text-green-600 transition-colors">License (MIT)</a>
+                <a href="https://github.com/shieldmonkey/shieldmonkey/blob/main/SECURITY.md"
+                    class="hover:text-green-600 transition-colors">Security Policy</a>
             </div>
             <div class="mt-8 text-xs text-gray-400">
                 &copy; 2026 Shieldmonkey Project. Released under the MIT License.
@@ -468,31 +453,29 @@
                     "meta.title": "Shieldmonkey - セキュリティ重視のUserScriptマネージャー",
                     "meta.description": "Shieldmonkeyは、サプライチェーン攻撃対策と透明性を最優先した、セキュリティ重視のUserScript管理拡張機能です。",
                     "hero.subtitle": "Security-First UserScript Manager",
-                    "hero.description": "Shieldmonkeyは、徹底したサプライチェーン対策と透明性の高いオープンソース開発により、セキュリティを維持しつつもユーザースクリプトによる利便性をもたらす拡張機能です。",
-                    "hero.store_coming_soon": "ストア公開準備中",
-                    "features.philosophy.title": "The \"Static\" Philosophy",
-                    "features.philosophy.desc": "不便さと引き換えに手に入れる、絶対的な安心。<br>Shieldmonkeyは「何もしない」ことであなたを守ります。",
-                    "features.zero_network.desc": "拡張機能自体が外部との通信を一切行わないため、スクリプトの自動更新やクラウドバックアップも存在しません。この制約はmanifest.jsonの拡張機能のCSP設定によって物理的に担保されています。",
-                    "features.supply_chain.desc": "pnpmのサプライチェーンセキュリティ機能を活用。<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>frozen-lockfile</code> による厳密なバージョン管理と、<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>ignore-scripts</code> の強制により、ビルド時の不正なスクリプト実行やPhantom dependenciesを完全に防止します。",
-                    "features.verifiable.desc": "セキュリティツールがブラックボックスであってはなりません。ビルド後のコードに対しても意図的にMinify（圧縮）を行わず、Source Mapsも同梱することで、誰もが検証可能な透明性を提供します。",
-                    "install.subtitle": "現在はパブリックベータ版として、手動インストールのみを提供しています。",
-                    "install.step1.title": "GitHub Releasesからダウンロード",
-                    "install.step1.desc": "ページ下部のリンクから、最新の <code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>shieldmonkey-vX.X.X.zip</code> をダウンロードし、解凍します。",
-                    "install.step2.title": "デベロッパーモードを有効化",
-                    "install.step2.desc": "Chrome (またはEdge/Brave) の拡張機能管理ページ (<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>chrome://extensions</code>) を開き、右上の「デベロッパーモード」スイッチをONにします。",
-                    "install.step3.title": "パッケージ化されていない拡張機能を読み込む",
-                    "install.step3.desc": "「パッケージ化されていない拡張機能を読み込む」ボタンをクリックし、解凍したフォルダ（manifest.jsonが含まれているフォルダ）を選択してください。",
-                    "install.step4.title": "ユーザースクリプトを許可する",
-                    "install.step4.desc": "インストールされた拡張機能の詳細ページを開き、「ユーザースクリプトを許可する」のスイッチをONにしてください。<br><span class='text-sm text-red-600 font-bold mt-1 block'>※この設定を行わないとスクリプトが動作しません。</span>",
-                    "faq.q1": "なぜ手動インストールが推奨されるのですか？",
-                    "faq.a1": "Chrome Web Storeなどは「全自動更新」が基本です。しかし、セキュリティツールには「勝手にコードが変わらないこと」が求められます。Shieldmonkeyはユーザーがコードの変更点を確認し、意思を持ってアップデートすることを前提に設計されています。",
+                    "hero.description": "Shieldmonkeyは、セキュリティと透明性を最優先したUserScriptマネージャーです。外部通信の完全な遮断、徹底したサプライチェーン保護、そして検証可能なオープンソース開発により、UserScriptの利便性を維持しつつ、これまでにない安心を提供します。",
+                    "hero.store_coming_soon": "対応ストア",
+                    "features.philosophy.title": "信頼を支える3つの原則",
+                    "features.philosophy.desc": "Shieldmonkeyの安全性は、3つの要素によって確立されています。外部通信の物理的な遮断、サプライチェーン攻撃への防御、そして誰もが検証可能な透明性です。",
+                    "features.zero_network.desc": "拡張機能自体が外部との通信を一切行わないため、スクリプトの自動更新やクラウドバックアップも存在しません。この制約はmanifest.jsonの拡張機能のCSP設定によって物理的に担保されています。<pre class='mt-3 p-3 bg-gray-900 text-gray-100 text-xs rounded-md font-mono overflow-x-auto border border-gray-700'>\"content_security_policy\": {\n  \"extension_pages\": \"script-src 'self'; connect-src 'self'; object-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; default-src 'none'\"\n}</pre>",
+                    "features.supply_chain.desc": "pnpmのセキュリティ機能をフル活用。<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>frozen-lockfile</code> による厳密なバージョンロックと、<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>ignore-scripts</code> によるスクリプト実行の強制ブロックにより、侵害されたパッケージがインストール時に意図せず不正コードを実行するリスクを排除します。",
+                    "features.verifiable.desc": "強い権限を持つ拡張機能だからこそ、ブラックボックスであってはなりません。ビルド後のコードに対しても意図的にMinify（圧縮）を行わず、Source Mapsも同梱することで、誰もが検証可能な透明性を提供します。",
+                    "install.subtitle": "公式ストア、またはGitHub Releasesからインストール可能です。<br>手動インストールを行う場合は、以下の手順に従ってください。",
+                    "install.step1.title": "GitHubからダウンロード",
+                    "install.step1.desc": "ページ下部のリンクから、最新のリリースパッケージ（zip）をダウンロードし、解凍します。",
+                    "install.step2.title": "拡張機能を読み込む",
+                    "install.step2.desc": "ブラウザの拡張機能管理ページで「デベロッパーモード」を有効にし、「パッケージ化されていない拡張機能を読み込む」から解凍したフォルダを選択します。",
+                    "install.step3.title": "権限の許可",
+                    "install.step3.desc": "必要に応じて拡張機能の詳細設定で「ファイルのURLへのアクセス」を許可してください。また、ブラウザによってはスクリプト実行時に個別の権限許可が求められます。",
+                    "faq.q1": "手動インストールとストア版の違いは？",
+                    "faq.a1": "「利便性」か「統制」かです。ストア版は審査があり導入も簡単ですが、自動更新により意図せずコードが変わるリスク（マルウェア化など）がゼロではありません。手動版はバージョンを完全に固定でき、コード監査も容易ですが、更新の手間がかかります。Shieldmonkeyでは手動インストールも、サプライチェーン攻撃に対する有効な選択肢として推奨しています。",
                     "faq.q2": "利便性は下がりますか？",
-                    "faq.a2": "はい。自動更新やクラウド同期はありません。データのバックアップも手動のエクスポートが必要です。私たちは「便利さ」のために「安全」をトレードオフにすることをやめました。",
+                    "faq.a2": "クラウド同期のような外部依存機能はありませんが、代わりに**ローカルファイルシステムへの自動同期機能**を備えています。スクリプトをローカルファイルとして扱えるため、Gitによるバージョン管理や、お好みのエディタでの編集が可能です。外部へのデータ流出を防ぎたい、ポリシーの厳しい企業内での利用にも最適です。",
                     "faq.q3": "コードが読めるメリットは何ですか？",
                     "faq.a3": "拡張機能があなたのブラウザ上で何をしているか、いつでも検証可能です。配布コードがMinify（圧縮）されていないため、ブラウザのデバッガーだけで「意図しない挙動」がないか容易に監査できます。",
                     "faq.q4": "ユーザースクリプト自体は安全ですか？",
                     "faq.a4": "いいえ。Shieldmonkeyは「マネージャー」としての安全性を担保しますが、あなたがインストールする「スクリプト本体」の安全性までは保証できません。必ず信頼できるソースからスクリプトを取得し、内容を確認してから実行してください。",
-                    "footer.desc": "Webストアの利便性よりも、確実なバージョン管理を。<br>GitHub Releasesから署名されたバージョンを取得し、あなたのタイミングでアップデートを行ってください。",
+                    "footer.desc": "Webストアの利便性か、手動管理による統制か。<br>あなたのセキュリティポリシーに合わせて、最適なインストール方法を選択してください。",
                     "footer.button": "GitHub Releases へ移動",
                     "footer.note": "※インストールにはブラウザのデベロッパーモードが必要です"
                 },
@@ -500,37 +483,36 @@
                     "meta.title": "Shieldmonkey - Security-First UserScript Manager",
                     "meta.description": "Shieldmonkey is a security-first UserScript manager that prioritizes supply chain attack protection and transparency.",
                     "hero.subtitle": "Security-First UserScript Manager",
-                    "hero.description": "Shieldmonkey is an extension that brings the convenience of UserScripts while maintaining security through thorough supply chain measures and highly transparent open-source development.",
-                    "hero.store_coming_soon": "Store Release Coming Soon",
-                    "features.philosophy.title": "The \"Static\" Philosophy",
-                    "features.philosophy.desc": "Absolute peace of mind in exchange for inconvenience.<br>Shieldmonkey protects you by \"doing nothing\".",
-                    "features.zero_network.desc": "Since the extension itself performs no external communication, there are no automatic script updates or cloud backups. This constraint is physically enforced by the extension's CSP settings in manifest.json.",
-                    "features.supply_chain.desc": "Leveraging pnpm's supply chain security. We strictly manage versions via <code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>frozen-lockfile</code> and enforce <code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>ignore-scripts</code> to prevent malicious script execution and phantom dependencies during builds.",
+                    "hero.description": "Shieldmonkey makes zero external connections. Actually, it *can't*. Through rigorous supply chain security and open-source transparency, it delivers the convenience of UserScripts without compromising safety.",
+                    "hero.store_coming_soon": "Available Stores",
+                    "features.philosophy.title": "Three Principles of Trust",
+                    "features.philosophy.desc": "Shieldmonkey's security is established by three core elements: Physical Network Isolation, Supply Chain Defense, and Verifiable Transparency.",
+                    "features.zero_network.desc": "Since the extension itself performs no external communication, there are no automatic script updates or cloud backups. This constraint is physically enforced by the extension's CSP settings in manifest.json.<pre class='mt-3 p-3 bg-gray-900 text-gray-100 text-xs rounded-md font-mono overflow-x-auto border border-gray-700'>\"content_security_policy\": {\n  \"extension_pages\": \"script-src 'self'; connect-src 'self'; object-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; default-src 'none'\"\n}</pre>",
+                    "features.supply_chain.desc": "Leveraging pnpm's supply chain security features. We strictly manage versions via <code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>frozen-lockfile</code> and enforce <code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>ignore-scripts</code> to prevent the execution of malicious scripts from compromised packages during installation.",
                     "features.verifiable.desc": "Security tools must not be black boxes. By intentionally not minifying the distributed code and including Source Maps, we provide transparency that anyone can verify.",
-                    "install.subtitle": "Currently available as a public beta with manual installation only.",
-                    "install.step1.title": "Download from GitHub Releases",
-                    "install.step1.desc": "Download the latest <code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>shieldmonkey-vX.X.X.zip</code> from the link at the bottom of the page and unzip it.",
-                    "install.step2.title": "Enable Developer Mode",
-                    "install.step2.desc": "Open the Extensions management page (<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>chrome://extensions</code>) in Chrome (or Edge/Brave) and turn ON the \"Developer mode\" switch in the top right.",
-                    "install.step3.title": "Load Unpacked Extension",
-                    "install.step3.desc": "Click the \"Load unpacked\" button and select the unzipped folder (the folder containing manifest.json).",
-                    "install.step4.title": "Allow UserScripts",
-                    "install.step4.desc": "Open the details page of the installed extension and turn ON the \"Allow access to file URLs\" (if applicable) or ensure permissions. <br><span class='text-sm text-red-600 font-bold mt-1 block'>*Scripts may not work without necessary permissions.</span>",
-                    "faq.q1": "Why is manual installation recommended?",
-                    "faq.a1": "Chrome Web Store defaults to \"automatic updates\". However, security tools require that \"code does not change without permission\". Shieldmonkey is designed on the premise that users verify code changes and update with intent.",
+                    "install.subtitle": "Install from the official store or GitHub Releases.<br>For manual installation, follow the steps below:",
+                    "install.step1.title": "Download from GitHub",
+                    "install.step1.desc": "Download the latest release package (zip) from the link below and unzip it.",
+                    "install.step2.title": "Load the Extension",
+                    "install.step2.desc": "Enable 'Developer mode' in your browser's extension management page, then load the unzipped folder via 'Load unpacked'.",
+                    "install.step3.title": "Allow Permissions",
+                    "install.step3.desc": "Allow 'Allow access to file URLs' in the extension details if needed. Also, some browsers may request specific permissions when a script is executed.",
+                    "faq.q1": "Difference between Manual and Store versions?",
+                    "faq.a1": "It's a choice between convenience and control. Store versions are reviewed and easy to install, but carry a non-zero risk of sudden code changes (like turning into malware) via auto-updates. Manual versions allow you to pit the version and audit code, though they lack store review and require manual updates. We recommend manual installation as a valid option for robust security.",
                     "faq.q2": "Is convenience reduced?",
-                    "faq.a2": "Yes. There are no automatic updates or cloud syncs. Data backup also requires manual export. We stopped trading off \"safety\" for \"convenience\".",
+                    "faq.a2": "We don't have cloud sync, but we do have **Local File System Sync**. This allows you to treat scripts as local files, enabling version control with Git or editing with your favorite editor. Ideal for enterprise use cases where data leakage prevention is critical.",
                     "faq.q3": "What is the benefit of readable code?",
                     "faq.a3": "You can verify what the extension is doing on your browser at any time. Since the distributed code is not minified, you can easily audit for \"unintended behavior\" using just the browser debugger.",
                     "faq.q4": "Are the UserScripts themselves safe?",
                     "faq.a4": "No. Shieldmonkey guarantees security as a \"manager\", but it cannot guarantee the safety of the \"scripts themselves\" you install. Always obtain scripts from trusted sources and verify the content before running.",
-                    "footer.desc": "Secure version management over Web Store convenience.<br>Get signed versions from GitHub Releases and update at your own timing.",
+                    "footer.desc": "Store convenience or manual control.<br>Choose the installation method that best fits your security policy.",
                     "footer.button": "Go to GitHub Releases",
                     "footer.note": "*Developer mode is required for installation"
                 }
             };
 
-            const langToggle = document.getElementById('lang-toggle');
+            const langBtnJa = document.getElementById('lang-btn-ja');
+            const langBtnEn = document.getElementById('lang-btn-en');
             let currentLang = localStorage.getItem('lang') || (navigator.language.startsWith('ja') ? 'ja' : 'en');
             const metaTitle = document.querySelector('title');
             const metaDesc = document.querySelector('meta[name="description"]');
@@ -556,16 +538,21 @@
                     if (metaDesc) metaDesc.setAttribute('content', translations[lang]["meta.description"]);
                 }
 
-                langToggle.textContent = lang === 'ja' ? 'English' : '日本語';
+                // Update Button Styles
+                if (lang === 'ja') {
+                    langBtnJa.className = "px-3 py-1.5 rounded-md text-xs font-bold transition-all bg-white text-green-600 shadow-sm cursor-default";
+                    langBtnEn.className = "px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-500 hover:text-gray-900 cursor-pointer";
+                } else {
+                    langBtnEn.className = "px-3 py-1.5 rounded-md text-xs font-bold transition-all bg-white text-green-600 shadow-sm cursor-default";
+                    langBtnJa.className = "px-3 py-1.5 rounded-md text-xs font-bold transition-all text-gray-500 hover:text-gray-900 cursor-pointer";
+                }
             }
 
             // Initial load
             updateLanguage(currentLang);
 
-            langToggle.addEventListener('click', () => {
-                const newLang = currentLang === 'ja' ? 'en' : 'ja';
-                updateLanguage(newLang);
-            });
+            langBtnJa.addEventListener('click', () => updateLanguage('ja'));
+            langBtnEn.addEventListener('click', () => updateLanguage('en'));
 
 
             // Lucide icons
