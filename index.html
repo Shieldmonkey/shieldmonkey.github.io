@@ -174,16 +174,16 @@
                         data-i18n="hero.store_coming_soon">対応ストア</p>
                     <div class="flex flex-wrap justify-center gap-3">
                         <!-- Chrome -->
-                        <div
-                            class="relative group opacity-60 cursor-not-allowed transform scale-90 grayscale transition-all hover:grayscale-0">
-                            <div
-                                class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm">
-                                <i data-lucide="chrome" class="w-5 h-5 text-gray-600"></i>
+                        <div class="relative group transform transition-all hover:-translate-y-0.5">
+                            <a href="https://chromewebstore.google.com/detail/shieldmonkey/ohgeceppgnodakogcboiaojfiboobplh"
+                                target="_blank"
+                                class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:border-blue-500/50 transition-all">
+                                <i data-lucide="chrome" class="w-5 h-5 text-blue-600"></i>
                                 <div class="text-left">
-                                    <div class="text-[10px] text-gray-500 leading-none">Coming Soon</div>
+                                    <div class="text-[10px] text-gray-500 leading-none">Get it on</div>
                                     <div class="font-bold text-sm text-gray-800 leading-tight">Chrome</div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
 
                         <!-- Firefox -->
@@ -199,16 +199,16 @@
                         </div>
 
                         <!-- Edge -->
-                        <div
-                            class="relative group opacity-60 cursor-not-allowed transform scale-90 grayscale transition-all hover:grayscale-0">
-                            <div
-                                class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm">
-                                <i data-lucide="globe" class="w-5 h-5 text-gray-600"></i>
+                        <div class="relative group transform transition-all hover:-translate-y-0.5">
+                            <a href="https://chromewebstore.google.com/detail/shieldmonkey/ohgeceppgnodakogcboiaojfiboobplh"
+                                target="_blank"
+                                class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:border-sky-500/50 transition-all">
+                                <i data-lucide="globe" class="w-5 h-5 text-sky-600"></i>
                                 <div class="text-left">
-                                    <div class="text-[10px] text-gray-500 leading-none">Coming Soon</div>
+                                    <div class="text-[10px] text-gray-500 leading-none">via Chrome Store</div>
                                     <div class="font-bold text-sm text-gray-800 leading-tight">Edge</div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -297,7 +297,8 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-2xl font-bold mb-4 text-gray-900">How to Install</h2>
-                <p class="text-gray-600" data-i18n="install.subtitle">Firefox版はストアから、Chrome版は手動でインストールしてください。</p>
+                <p class="text-gray-600" data-i18n="install.subtitle">公式ストア、またはGitHub
+                    Releasesからインストール可能です。<br>手動インストールを行う場合は、以下の手順に従ってください。</p>
             </div>
 
             <div class="space-y-12">
@@ -307,9 +308,10 @@
                         class="flex-shrink-0 w-12 h-12 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-xl shadow-lg">
                         1</div>
                     <div class="pt-2">
-                        <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="install.step1.title">入手とインストール</h3>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="install.step1.title">GitHubからダウンロード
+                        </h3>
                         <p class="text-gray-600 leading-relaxed mb-4" data-i18n="install.step1.desc">
-                            Firefoxをお使いの方は公式ストアから追加してください。Chromeなどで手動インストールする場合は、GitHub Releasesから最新版をダウンロードします。
+                            ページ下部のリンクから、最新のリリースパッケージ（zip）をダウンロードし、解凍します。
                         </p>
                     </div>
                 </div>
