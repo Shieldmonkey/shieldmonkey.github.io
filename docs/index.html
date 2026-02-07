@@ -279,8 +279,8 @@
                     <h3 class="text-lg font-bold mb-3 text-gray-900">Verifiable Trust</h3>
                     <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow"
                         data-i18n="features.verifiable.desc">
-                        セキュリティツールがブラックボックスであってはなりません。Shieldmonkeyは完全にオープンソースであり、ビルド後のコードに対しても意図的にMinify（圧縮）を行わず、Source
-                        Mapsも同梱することで、誰もが検証可能な透明性を提供します。
+                        セキュリティツールがブラックボックスであってはなりません。ソースコードはGitHubで公開されており、ビルド後の配布コードに対しても意図的にMinify（圧縮）を行わず、Source
+                        Mapsも同梱することで、誰もがいつでも検証可能な透明性を提供します。
                     </p>
                     <div class="text-xs font-mono text-green-600 flex items-center gap-1 font-semibold mt-auto">
                         <i data-lucide="file-code" class="w-3 h-3"></i> Readable Code
@@ -462,7 +462,7 @@
                     "features.philosophy.desc": "Shieldmonkeyの安全性は、3つの要素によって確立されています。外部通信の物理的な遮断、サプライチェーン攻撃への防御、そして誰もが検証可能な透明性です。",
                     "features.zero_network.desc": "拡張機能自体が外部との通信を一切行わないため、スクリプトの自動更新やクラウドバックアップも存在しません。この制約はmanifest.jsonの拡張機能のCSP設定によって物理的に担保されています。<pre class='mt-3 p-3 bg-gray-900 text-gray-100 text-xs rounded-md font-mono overflow-x-auto border border-gray-700'>\"content_security_policy\": {\n  \"extension_pages\": \"script-src 'self'; connect-src 'self'; object-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; default-src 'none'\"\n}</pre>",
                     "features.supply_chain.desc": "pnpmのセキュリティ機能をフル活用。<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>frozen-lockfile</code> による厳密なバージョンロックと、<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>ignore-scripts</code> によるスクリプト実行の強制ブロックにより、侵害されたパッケージがインストール時に意図せず不正コードを実行するリスクを排除します。",
-                    "features.verifiable.desc": "強い権限を持つ拡張機能だからこそ、オープンソースであり、ブラックボックスであってはなりません。ビルド後のコードに対しても意図的にMinify（圧縮）を行わず、Source Mapsも同梱することで、誰もが検証可能な透明性を提供します。",
+                    "features.verifiable.desc": "強い権限を持つ拡張機能だからこそ、ブラックボックスであってはなりません。ソースコードはGitHubで公開されており、ビルド後の配布コードに対しても意図的にMinify（圧縮）を行わず、Source Mapsも同梱することで、誰もがいつでも検証可能な透明性を提供します。",
                     "install.subtitle": "公式ストア、またはGitHub Releasesからインストール可能です。<br>手動インストールを行う場合は、以下の手順に従ってください。",
                     "install.step1.title": "GitHubからダウンロード",
                     "install.step1.desc": "ページ下部のリンクから、最新のリリースパッケージ（zip）をダウンロードし、解凍します。",
@@ -492,7 +492,7 @@
                     "features.philosophy.desc": "Shieldmonkey's security is established by three core elements: Physical Network Isolation, Supply Chain Defense, and Verifiable Transparency.",
                     "features.zero_network.desc": "Since the extension itself performs no external communication, there are no automatic script updates or cloud backups. This constraint is physically enforced by the extension's CSP settings in manifest.json.<pre class='mt-3 p-3 bg-gray-900 text-gray-100 text-xs rounded-md font-mono overflow-x-auto border border-gray-700'>\"content_security_policy\": {\n  \"extension_pages\": \"script-src 'self'; connect-src 'self'; object-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; default-src 'none'\"\n}</pre>",
                     "features.supply_chain.desc": "Leveraging pnpm's supply chain security features. We strictly manage versions via <code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>frozen-lockfile</code> and enforce <code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>ignore-scripts</code> to prevent the execution of malicious scripts from compromised packages during installation.",
-                    "features.verifiable.desc": "Security tools must not be black boxes. Shieldmonkey is fully open source. By intentionally not minifying the distributed code and including Source Maps, we provide transparency that anyone can verify.",
+                    "features.verifiable.desc": "Security tools must not be black boxes. Our source code is public on GitHub, and by intentionally not minifying the distributed code and including Source Maps, we provide transparency that anyone can verify at any time.",
                     "install.subtitle": "Install from the official store or GitHub Releases.<br>For manual installation, follow the steps below:",
                     "install.step1.title": "Download from GitHub",
                     "install.step1.desc": "Download the latest release package (zip) from the link below and unzip it.",
