@@ -258,9 +258,8 @@
                     <h3 class="text-lg font-bold mb-3 text-gray-900">Supply Chain Defense</h3>
                     <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow"
                         data-i18n="features.supply_chain.desc">
-                        すべての依存ライブラリのバージョンを厳密に固定。さらに、実行を許可するスクリプトのホワイトリスト化（<code
-                            class="bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono">onlyBuiltDependencies</code>）、パッケージ公開から一定期間経過を必須とする要件、および外部サイト等からの特殊な依存（Exotic
-                        subdeps）のブロックなど、pnpmの高度な緩和策を多層的に導入しています。
+                        パッケージマネージャーにpnpmを採用し、すべての依存ライブラリのバージョンを厳密に固定。さらに、すべてのインストールスクリプトの実行をデフォルトでブロックし、パッケージ公開から一定期間の経過を必須とする要件や、外部からの特殊な依存（Exotic
+                        subdeps）の制限など、高度な緩和策を多層的に導入しています。
                     </p>
                     <div class="text-xs font-mono text-green-600 flex items-center gap-1 font-semibold mt-auto">
                         <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Dependencies
@@ -459,7 +458,7 @@
                     "features.philosophy.title": "信頼を支える3つの原則",
                     "features.philosophy.desc": "Shieldmonkeyの安全性は、3つの要素によって確立されています。外部通信の物理的な遮断、サプライチェーン攻撃への防御、そして誰もが検証可能な透明性です。",
                     "features.zero_network.desc": "拡張機能自体が外部との通信を一切行わないため、スクリプトの自動更新やクラウドバックアップも存在しません。この制約はmanifest.jsonの拡張機能のCSP設定によって物理的に担保されています。<pre class='mt-3 p-3 bg-gray-900 text-gray-100 text-xs rounded-md font-mono overflow-x-auto border border-gray-700'>\"content_security_policy\": {\n  \"extension_pages\": \"script-src 'self'; connect-src 'self'; object-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; default-src 'none'\"\n}</pre>",
-                    "features.supply_chain.desc": "すべての依存ライブラリのバージョンを厳密に固定。さらに、実行を許可するスクリプトのホワイトリスト化（<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>onlyBuiltDependencies</code>）、パッケージ公開から一定期間経過を必須とする要件（minimumReleaseAge）、および外部からの特殊な依存のブロックなど、pnpmの高度な緩和策を多層的に導入しています。",
+                    "features.supply_chain.desc": "パッケージマネージャーにpnpmを採用し、すべての依存ライブラリのバージョンを厳密に固定。さらに、すべてのインストールスクリプトの実行をデフォルトでブロックし、パッケージ公開から一定期間の経過を必須とする要件（minimumReleaseAge）や、外部からの特殊な依存（Exotic subdeps）の制限など、高度な緩和策を多層的に導入しています。",
                     "features.verifiable.desc": "強い権限を持つ拡張機能だからこそ、ブラックボックスであってはなりません。ソースコードはGitHubで公開されており、ビルド後の配布コードに対しても意図的にMinify（圧縮）を行わず、Source Mapsも同梱することで、誰もがいつでも検証可能な透明性を提供します。",
                     "install.subtitle": "公式ストア、またはGitHub Releasesからインストール可能です。<br>手動インストールを行う場合は、以下の手順に従ってください。",
                     "install.step1.title": "GitHubからダウンロード",
@@ -489,7 +488,7 @@
                     "features.philosophy.title": "Three Principles of Trust",
                     "features.philosophy.desc": "Shieldmonkey's security is established by three core elements: Physical Network Isolation, Supply Chain Defense, and Verifiable Transparency.",
                     "features.zero_network.desc": "Since the extension itself performs no external communication, there are no automatic script updates or cloud backups. This constraint is physically enforced by the extension's CSP settings in manifest.json.<pre class='mt-3 p-3 bg-gray-900 text-gray-100 text-xs rounded-md font-mono overflow-x-auto border border-gray-700'>\"content_security_policy\": {\n  \"extension_pages\": \"script-src 'self'; connect-src 'self'; object-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; default-src 'none'\"\n}</pre>",
-                    "features.supply_chain.desc": "All dependencies are strictly version-pinned. We implement multi-layered pnpm mitigation measures, including whitelisting allowed build scripts (<code class='bg-gray-100 px-1 py-0.5 rounded text-gray-800 text-xs font-mono'>onlyBuiltDependencies</code>), enforcing a minimum release age for packages, and blocking exotic sub-dependencies to ensure a clean and secure build environment.",
+                    "features.supply_chain.desc": "We adopt pnpm as our package manager and strictly pin all dependency versions. Furthermore, all installation scripts are blocked by default. Combined with requirements for a minimum package release age and restrictions on exotic sub-dependencies, we implement multi-layered mitigation measures to ensure a secure build environment.",
                     "features.verifiable.desc": "Security tools must not be black boxes. Our source code is public on GitHub, and by intentionally not minifying the distributed code and including Source Maps, we provide transparency that anyone can verify at any time.",
                     "install.subtitle": "Install from the official store or GitHub Releases.<br>For manual installation, follow the steps below:",
                     "install.step1.title": "Download from GitHub",
